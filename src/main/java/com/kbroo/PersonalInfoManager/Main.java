@@ -4,11 +4,15 @@ package com.kbroo.PersonalInfoManager;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.kbroo.PersonalInfoManager.CustomFileManager.CustomFileManager;
 import com.kbroo.PersonalInfoManager.Task.Task;
 
 public class Main {
     static void main(String[] args) {
         ArrayList<Task> toDoList = new ArrayList<>();
+        CustomFileManager customFileManager = new CustomFileManager();
+        customFileManager.getTasksFromFile("tasks.txt");
 
         System.out.println("Вас приветствует InfoManager v1.0");
         System.out.print("Укажите ваше имя: ");
@@ -77,6 +81,7 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("\n=======================\n");
+                    customFileManager.saveToFile(toDoList);
                     System.exit(0);
                     break;
             }
