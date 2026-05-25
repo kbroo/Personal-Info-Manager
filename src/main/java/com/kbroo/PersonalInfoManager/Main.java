@@ -2,6 +2,7 @@ package com.kbroo.PersonalInfoManager;
 
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import com.kbroo.PersonalInfoManager.Task.Task;
 
@@ -17,13 +18,23 @@ public class Main {
 
         while(true) {
             int choice = 0;
+            boolean choiceIsTrue = false;
             System.out.println("========= MENU =========\n" +
                     "1. Показать список дел.\n" +
                     "2. Добавить задачу.\n" +
                     "3. Пометить выполненной.\n" +
                     "0. Выход.\n");
             System.out.print("\nВыберите действие: ");
-            choice = scanner.nextInt();
+            while (!choiceIsTrue) {
+                try {
+                    choice = scanner.nextInt();
+                    choiceIsTrue = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("Введено некорректное значение.\n");
+                    scanner.nextLine();
+                    System.out.print("\nВыберите действие: ");
+                }
+            }
             scanner.nextLine();
             switch (choice) {
                 case 1:
@@ -45,7 +56,15 @@ public class Main {
                     break;
                 case 3:
                     System.out.print("Укажите номер задачи, которую вы выполнили: ");
-                    int numberOfTask = scanner.nextInt();
+                    int numberOfTask;
+                    try {
+                        numberOfTask = scanner.nextInt();
+                        scanner.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Вы ввели не число.\n");
+                        scanner.nextLine();
+                        break;
+                    }
                     if (toDoList.size() < numberOfTask) {
                         System.out.println("Задача не существует.\n");
                         break;
