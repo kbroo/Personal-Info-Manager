@@ -1,4 +1,4 @@
-package com.kbroo.PersonalInfoManager.Task;
+package com.kbroo.PersonalInfoManager.task;
 
 public class Task {
     private final String title;

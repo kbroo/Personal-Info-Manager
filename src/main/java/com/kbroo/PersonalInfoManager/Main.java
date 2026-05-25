@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.kbroo.PersonalInfoManager.CustomFileManager.CustomFileManager;
-import com.kbroo.PersonalInfoManager.Task.Task;
+import com.kbroo.PersonalInfoManager.customFileManager.CustomFileManager;
+import com.kbroo.PersonalInfoManager.task.Task;
 
 public class Main {
-    static void main(String[] args) {
-        ArrayList<Task> toDoList = new ArrayList<>();
+    public static void main(String[] args) {
         CustomFileManager customFileManager = new CustomFileManager();
-        customFileManager.getTasksFromFile("tasks.txt");
+        ArrayList<Task> toDoList = customFileManager.getTasksFromFile("tasks.txt");
 
         System.out.println("Вас приветствует InfoManager v1.0");
         System.out.print("Укажите ваше имя: ");

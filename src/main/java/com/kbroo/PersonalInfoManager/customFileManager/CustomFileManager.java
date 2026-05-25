@@ -1,9 +1,8 @@
-package com.kbroo.PersonalInfoManager.CustomFileManager;
+package com.kbroo.PersonalInfoManager.customFileManager;
 
-import com.kbroo.PersonalInfoManager.Task.Task;
+import com.kbroo.PersonalInfoManager.task.Task;
 
 import java.io.*;
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class CustomFileManager {
